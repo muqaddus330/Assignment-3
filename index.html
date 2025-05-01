@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Registration & Preferences</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f8fb;
+      padding: 20px;
+      color: #333;
+    }
+    fieldset {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 25px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    legend {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #2a5d84;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+    .inline {
+      display: inline-block;
+      margin-right: 15px;
+      font-weight: normal;
+    }
+    .buttons input {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .submit-btn { background-color: #0066cc; }
+    .reset-btn { background-color: #888; }
+    .thanks-btn { background-color: #28a745; }
+  </style>
+</head>
+<body>
+
+  <h2>User Registration & Preferences Form</h2>
+
+  <form>
+
+    <fieldset>
+      <legend>Personal Information</legend>
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" placeholder="e.g. Amna" required>
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" placeholder="e.g. Bibi" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="amna@example.com" required>
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob">
+
+      <label for="color">Upload Avatar Image</label>
+      <input type="file" id="color" accept="image/*">
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences</legend>
+
+      <label>Favorite Web Language</label>
+      <div class="inline"><input type="radio" name="lang"> Python</div>
+      <div class="inline"><input type="radio" name="lang"> PHP</div>
+      <div class="inline"><input type="radio" name="lang"> Java</div>
+
+      <label>Devices You Own</label>
+      <div class="inline"><input type="checkbox"> Laptop</div>
+      <div class="inline"><input type="checkbox"> Tablet</div>
+      <div class="inline"><input type="checkbox"> Smartwatch</div>
+
+      <label>Select Your Favorite Brand</label>
+      <select multiple>
+        <option>Dell</option>
+        <option>Apple</option>
+        <option>Lenovo</option>
+        <option>Asus</option>
+      </select>
+
+      <label>Preferred Contact Time</label>
+      <input type="time">
+    </fieldset>
+
+    <fieldset>
+      <legend>Feedback & Settings</legend>
+
+      <label>Feedback</label>
+      <textarea rows="4" placeholder="Share your experience or suggestions..."></textarea>
+
+      <label>Country Code</label>
+      <input type="text" placeholder="+92">
+
+      <label>Skill Satisfaction Level</label>
+      <input type="range" min="0" max="100" value="85">
+      <p>Skill Level: <span id="rangeValue">85</span></p>
+
+      <label>Age</label>
+      <input type="number" placeholder="e.g. 25" min="10" max="100">
+
+      <label>Enrollment Month</label>
+      <input type="month">
+    </fieldset>
+
+    <div class="buttons">
+      <input type="submit" class="submit-btn" value="Submit">
+      <input type="reset" class="reset-btn" value="Reset">
+      <input type="button" class="thanks-btn" value="Thank you for visiting!" onclick="alert('Thanks for your input!')">
+    </div>
+
+  </form>
+
+  <script>
+    const slider = document.querySelector('input[type="range"]');
+    const display = document.getElementById('rangeValue');
+    slider.addEventListener('input', () => {
+      display.textContent = slider.value;
+    });
+  </script>
+
+</body>
+</html>
